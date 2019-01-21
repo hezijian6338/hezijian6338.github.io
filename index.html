@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | E-Shopper</title>
+    <link rel="stylesheet" href="./wobblebar.css" type="text/css">
     <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
@@ -20,11 +21,29 @@
             width: 100px;
         }
 
+        input {
+            font-family: myFirstFont;
+            font-size: 15px;
+        }
+
         .gbody {
             background-color: #dddddd;
             color: #333;
             font-size: 16px;
             line-height: 1.75;
+        }
+
+        .mask {
+            background-color: #ffffff;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 2;
+            opacity: 0;
+            -webkit-animation: mask 3s;
         }
 
         .handraw {
@@ -69,6 +88,15 @@
             left: 50%;
             margin-top: -200px;
             margin-left: -150px;
+        }
+
+        .in-first {
+            -webkit-animation: formTable 1s -0.4s ease-in-out;
+            /* -webkit-animation-delay: -0.4s; */
+        }
+
+        .in-second {
+            -webkit-animation: formTable 1s ease-in-out;
 
         }
 
@@ -132,6 +160,22 @@
             animation: myfirst 5s;
         }
 
+        .loading {
+            position: absolute;
+            bottom: 25px;
+            z-index: 1;
+            position: absolute;
+            /*绝对定位*/
+            width: 300px;
+            height: 500px;
+            text-align: center;
+            /*(让div中的内容居中)*/
+            top: 90%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -150px;
+        }
+
 
         .arrow {
             display: block;
@@ -145,10 +189,10 @@
             border: 3px solid transparent;
             border-top: 3px solid #000;
             border-left: 3px solid #000;
-            z-index: 99;
+            z-index: 1;
             opacity: .8;
             -webkit-transform: rotate(45deg);
-            -webkit-animation: arrow 3s infinite ease-in-out;
+            -webkit-animation: arrow 2s infinite ease-in-out;
 
         }
 
@@ -190,6 +234,33 @@
             }
         }
 
+        @-webkit-keyframes formTable {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate(0, 60px)
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translate(0, 0px)
+            }
+
+        }
+
+        @-webkit-keyframes mask {
+            0% {
+                opacity: 1;
+                -webkit-transform: translate(0, 0px)
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translate(0, -100%)
+            }
+
+        }
+
+
 
         @-webkit-keyframes arrow {
             0% {
@@ -224,20 +295,36 @@
 
 <body ng-app="marketplace" class="gbody">
     <div ui-view id="wrapper"></div>
+    <!-- <div class="mask"></div> -->
     <form>
-        <div><label>UserName</label></div>
-        
-        <input type="text" class="_div2" />
+        <div class="in-first"><label>UserName</label></div>
 
-        <div><label>Password</label></div>
+        <input type="text" class="_div2 in-first" />
 
-        <input type="password" class="_div2" />
+        <div class="in-second"><label>Password</label></div>
+
+        <input type="password" class="_div2 in-second" />
         <!-- <input type="password" class="handraw inputpss" /> -->
     </form>
     <!-- <div class="box">CSS3简单实现涂鸦风格边框 真的很好玩哦！</div> -->
 
     <!-- <div id="triangle-facing-right"></div> -->
     <div class="arrow"></div>
+    <div class="loading">
+        <div class="wobblebar-loader">
+            Loading…
+        </div>
+    </div>
+
 </body>
+
+<!-- <script src="https://unpkg.com/ityped@0.0.5"></script>
+<script>
+    ityped.init('#ityped', {
+        strings: ['UserName'],
+        startDelay: 80,
+        loop: false
+    });
+</script> -->
 
 </html>
