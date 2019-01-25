@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | E-Shopper</title>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        body {
+            background-color: #dddddd;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.75;
+            overflow: hidden;
+        }
+
+        /* .page {
+            overflow: hidden;
+        } */
+
+        .article {
+            /* display: flow-root; */
+            /* border: 3px solid #333333; */
+            padding: 10vh 0 0 0;
+            -webkit-transition: all 0.25s;
+            -webkit-animation: load 1s;
+        }
+
+        .main {
+            /* border: 3px solid #000; */
+            margin: 0 auto;
+            width: 60vw;
+            height: 30vh;
+            text-align: center;
+            overflow: hidden;
+            -webkit-transition: all 0.3s ease-out;
+        }
+
+        .main h1 {
+            width: 40vw;
+            text-align: center;
+            margin: 0 auto;
+            font-family: 'myFirstFont', '??', 'chineseFont', '??';
+        }
+
+        .main p {
+            margin: 10px 10px auto;
+            text-indent: 2em;
+            text-align: left;
+            /* font-size: 20px;
+            font-weight: 300;
+            line-height: 20px;
+            font-family: 'myFirstFont','??','chineseFont', '??'; */
+        }
+
+        .main:hover {
+            box-shadow: 0 0 15px 0 rgba(73, 56, 56, 0.5);
+            /* border: 3px solid #000; */
+            background: #cccccc;
+            height: 80vh;
+            -webkit-transition: all 0.25s 0.3s;
+            /* -webkit-animation: main 0.25s; */
+            /* -webkit-transform: translate(0, 100px); */
+        }
+
+        .other {
+            /* border: 3px solid #000; */
+            margin: 20vh auto;
+            width: 80vw;
+            height: 30vh;
+            text-align: center;
+        }
+
+        .other h2 {
+            display: inline-block;
+            width: 20vw;
+            position:relative;
+            /* border: 3px solid #000; */
+            text-align: center;
+            margin: 0 3vw 0 0;
+            vertical-align: middle;
+            font-family: 'myFirstFont', '??', 'chineseFont', '??';
+            z-index: 1;
+        }
+
+        .other>h2:hover {
+            /* box-shadow: 0 0 15px 0 rgba(73, 56, 56, 0.5);
+            -webkit-transform: scale(1.2);
+            -webkit-transition: all 0.25s ease-in-out; */
+        }
+
+        .other div {
+            /* display: none; */
+            display: inline-block;
+            position: absolute;
+            margin: 0 0 auto;
+            width: 20vw;
+            height: 5vh;
+            vertical-align: center;
+            z-index: 5;
+        }
+
+        .other>h2:hover .p_first {
+            display: inline-block;
+        }
+
+        .menu {
+            float: right;
+            /* border: 3px solid #000; */
+            width: auto;
+            height: 98vmin;
+            /* margin: 0 0 0 285px; */
+            /* overflow: hidden; */
+        }
+
+        .edge {
+            position: relative;
+            float: right;
+            height: 98vh;
+            -webkit-transition: all 0.25s;
+            border-radius: 255px 255px 225px 15px/15px 5px 15px 255px;
+            background: #999999;
+            /* overflow: hidden; */
+            /* border: 3px solid #000; */
+        }
+
+        .arrow {
+            /* border: 3px solid #000; */
+            position: absolute;
+            left: 97%;
+            top: 5.5%;
+        }
+
+        .sidenav {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            /* background: linear-gradient(rgba(50, 60, 60, 1), rgba(50, 60, 60, 0.7)); */
+            /* background: #999999; */
+            width: 100%;
+            -webkit-transition: all 0.25s;
+            overflow: hidden;
+            padding-top: 10em;
+        }
+
+        .sidenav a {
+            text-decoration: none;
+            /* color: #eee; */
+            display: block;
+            line-height: 48px;
+        }
+
+        .sidenav span {
+            display: block;
+        }
+
+        .sidenav b {
+            /* padding-left: 7em; */
+
+            text-align: center;
+            display: block;
+            color: white;
+            /* font-family: Montserrat; */
+            font-size: 20px;
+            line-height: 4;
+            opacity: 0;
+            font-family: 'myFirstFont', '??', 'chineseFont', '??';
+        }
+
+        .sidenav a i {
+            display: block;
+            /* float: left; */
+            font-size: 16px;
+            line-height: 48px;
+            width: 50px;
+            text-align: center;
+        }
+
+        .menu:hover .arrow1 {
+            -webkit-transform: translate(-20em, 0px) rotate(135deg);
+            opacity: .4;
+        }
+
+        .menu:hover .arrow2 {
+            -webkit-transform: translate(-20em, 0px) rotate(135deg);
+            opacity: .4;
+        }
+
+        .menu:hover .edge {
+            /* -webkit-transform: translate(-20em, 0px); */
+            /* width: 150px; */
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+            border: 3px solid #000;
+            padding-left: 20em;
+            -webkit-animation: edge 0.6s ease-out;
+        }
+
+        .menu:hover .sidenav {
+            display: flow-root;
+        }
+
+        .menu:hover .sidenav b {
+            opacity: 1;
+        }
+
+        .sidenav li:nth-child(1) b,
+        .sidenav li:nth-child(1) a {
+            -webkit-transition-delay: .08s;
+        }
+
+        .sidenav li:nth-child(2) b,
+        .sidenav li:nth-child(2) a {
+            -webkit-transition-delay: .16s;
+        }
+
+        .sidenav li:nth-child(3) b,
+        .sidenav li:nth-child(3) a {
+            -webkit-transition-delay: .24s;
+        }
+
+        .sidenav li:nth-child(4) b,
+        .sidenav li:nth-child(4) a {
+            -webkit-transition-delay: .32s;
+        }
+
+        .sidenav li:nth-child(5) b,
+        .sidenav li:nth-child(5) a {
+            -webkit-transition-delay: .40s;
+        }
+
+        .sidenav li:nth-child(6) b,
+        .sidenav li:nth-child(6) a {
+            -webkit-transition-delay: .48s;
+        }
+
+        .sidenav b {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        .sidenav:hover b {
+            transform: scale(1);
+            opacity: 1;
+            -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .sidenav i {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        .sidenav:hover i {
+            transform: scale(1);
+            opacity: 1;
+            -webkit-transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .sidenav>li {
+            -webkit-transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .sidenav>li:hover {
+            -webkit-transform: scale(1.2);
+        }
+
+        .arrow1 {
+            display: block;
+            width: 10px;
+            height: 10px;
+            bottom: 25px;
+            /* position: absolute;
+            bottom: 25px;
+            left: 99%;
+            top: 5%; */
+            /* margin-left: -11px; */
+            border: 3px solid transparent;
+            border-top: 3px solid #000;
+            border-left: 3px solid #000;
+            z-index: 1;
+            opacity: .8;
+            -webkit-transition: transform 0.5s, translate 0.5s;
+            -webkit-transform: rotate(-45deg);
+            /* -webkit-animation: arrow 2s infinite ease-in-out; */
+            -webkit-animation: loadEdgeArrow 2s 2s ease-in;
+        }
+
+        .arrow2 {
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-top: -11px;
+            bottom: 25px;
+            /* margin-left: -11px; */
+            border: 5px solid transparent;
+            border-top: 5px solid #000;
+            border-left: 5px solid #000;
+            z-index: 1;
+            opacity: .8;
+            -webkit-transition: transform 0.5s, translate 0.5s;
+            -webkit-transform: rotate(-45deg);
+            /* -webkit-animation: arrow 2s infinite ease-in-out; */
+            -webkit-animation: loadEdgeArrow 2s 2.3s ease-in;
+        }
+
+        .barrow {
+            position: absolute;
+            left: 50%;
+            top: 98%;
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-top: -11px;
+            bottom: 25px;
+            /* margin-left: -11px; */
+            border: 5px solid transparent;
+            border-top: 5px solid #000;
+            border-left: 5px solid #000;
+            z-index: 1;
+            opacity: .8;
+            -webkit-transition: transform 0.5s, translate 0.5s;
+            -webkit-transform: rotate(45deg);
+            -webkit-animation: loadArrow 2s 1s ease-in;
+
+        }
+
+        .barrow:hover {
+            -webkit-animation: arrow 2s 5 ease-in-out;
+        }
+
+
+        @font-face {
+            font-family: myFirstFont;
+            src: url('./DJ5CTRIAL.ttf')
+                /* IE9+ */
+        }
+
+        @font-face {
+            font-family: chineseFont;
+            src: url('./SentySnowMountain.ttf')
+        }
+
+
+        @-webkit-keyframes arrow {
+            0% {
+                opacity: 0.3;
+                -webkit-transform: translate(0px, 0px) rotate(45deg)
+            }
+
+            50% {
+                opacity: 0.6;
+                -webkit-transform: translate(0px, -10px) rotate(45deg)
+            }
+
+            100% {
+                opacity: 0;
+                -webkit-transform: translate(0px, -20px) rotate(45deg)
+            }
+
+        }
+
+        @-webkit-keyframes edge {
+            0% {
+                padding-left: 0em;
+            }
+
+            50% {
+                padding-left: 21em;
+            }
+
+            100% {
+                padding-left: 20em;
+            }
+
+        }
+
+        @-webkit-keyframes main {
+            0% {
+                height: 30vh;
+                -webkit-transform: translate(0px, 0px)
+            }
+
+            100% {
+                height: 60vh;
+                -webkit-transform: translate(0px, 100px)
+            }
+        }
+
+        @-webkit-keyframes load {
+            0% {
+                -webkit-transform: translate(0px, 500px)
+            }
+
+            100% {
+                -webkit-transform: translate(0px, 0px)
+            }
+        }
+
+        @-webkit-keyframes loadArrow {
+            0% {
+                -webkit-transform: translate(0px, -200px) rotate(45deg) scale(5);
+            }
+
+            50% {
+                -webkit-transform: translate(0px, -10px) rotate(405deg) scale(0);
+            }
+
+            100% {
+                -webkit-transform: translate(0px, 0px) rotate(45deg) scale(1);
+            }
+        }
+
+        @-webkit-keyframes loadEdgeArrow {
+            0% {
+                -webkit-transform: translate(-300px, 0px) rotate(-45deg) scale(5);
+            }
+
+            50% {
+                -webkit-transform: translate(-10px, 0px) rotate(-405deg) scale(0);
+            }
+
+            100% {
+                -webkit-transform: translate(0px, 0px) rotate(-45deg) scale(1);
+            }
+        }
+    </style>
+</head>
+<!--/head-->
+
+<body ng-app="marketplace" class="gbody">
+    <!-- <div ui-view id="wrapper"></div> -->
+    <div class="page">
+        <div class="menu">
+            <div class="arrow">
+                <div class="arrow1"></div>
+                <div class="arrow2"></div>
+            </div>
+            <div class="edge">
+                <ul class="sidenav">
+                    <li><a><i class="fa fa-check"></i><b>Tasks</b></a></li>
+                    <li><a><i class="fa fa-inbox"></i><b>Messages</b></a></li>
+                    <li><a><i class="fa fa-pencil"></i><b>New Post</b></a></li>
+                    <li><a><i class="fa fa-cog"></i><b>Settings</b></a></li>
+                    <li><a><i class="fa fa-star"></i><b>Starred</b></a></li>
+                    <li><a><i class="fa fa-power-off"></i><b>Logout</b></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="article">
+            <div class="main">
+                <h1>Google planning changes to Chrome that could break ad blockers</h1>
+                <p>Google is planning to change the way extensions integrate with its Chrome browser. The company says
+                    that
+                    the changes are necessary for and motivated by a desire to crack down on malicious extensions,
+                    which
+                    undermine users' privacy and security, as part of the company's continued efforts to make
+                    extensions
+                    safer. The move also means that popular ad blocking extensions such as uBlock Origin and uMatrix
+                    will,
+                    according to their developer, no longer work.
+
+                    穿插中文字体~
+
+                    The plans, called Manifest V3, are described in a public document. Google is proposing a number of
+                    changes to the way extensions work. The broad intent is to improve extension security, give users
+                    greater control over what extensions do and which sites they interact with, and make extension
+                    performance more robust. For example, extensions will no longer be able to load code from remote
+                    servers, so the extension that's submitted to the Chrome Web store contains exactly the code that
+                    will
+                    be run in the browser. This prevents malicious actors from submitting an extension to the store
+                    that
+                    loads benign code during the submission and approval process but then switches to something
+                    malicious
+                    once the extension is published. In a bid to discourage extensions from asking for blanket access
+                    to
+                    every site, Manifest V3 also changes the permissions system, so universal access can no longer be
+                    demanded at extension install time.</p>
+            </div>
+            <div class="other">
+                <h2>Arizona nurse accused of raping woman in vegetative state has wife and kids, attends church,
+                    neighbor says</h2>
+                <div class="p_first">
+                    <p> The plans, called Manifest V3, are described in a public document. Google is proposing a number
+                        of
+                        changes to the way extensions work. The broad intent is to improve extension security, give
+                        users
+                        greater control over what extensions do and which sites they interact with, and make extension
+                        performance more robust. For example, extensions will no longer be able to load code from
+                        remote
+                        servers, so the extension that's submitted to the Chrome Web store contains exactly the code
+                        that
+                        will
+                        be run in the browser. </p>
+                </div>
+                <h2>White Supremacist Pleads Guilty to Killing Black Man in New York to Start a ‘Race War’</h2>
+                <div class="p_second">
+                    <p> The plans, called Manifest V3, are described in a public document. Google is proposing a number
+                        of
+                        changes to the way extensions work. The broad intent is to improve extension security, give
+                        users
+                        greater control over what extensions do and which sites they interact with, and make extension
+                        performance more robust. For example, extensions will no longer be able to load code from
+                        remote
+                        servers, so the extension that's submitted to the Chrome Web store contains exactly the code
+                        that
+                        will
+                        be run in the browser. </p>
+                </div>
+                <h2>不会中文?</h2>
+                <div class="p_third">
+                    <p> The plans, called Manifest V3, are described in a public document. Google is proposing a number
+                        of
+                        changes to the way extensions work. The broad intent is to improve extension security, give
+                        users
+                        greater control over what extensions do and which sites they interact with, and make extension
+                        performance more robust. For example, extensions will no longer be able to load code from
+                        remote
+                        servers, so the extension that's submitted to the Chrome Web store contains exactly the code
+                        that
+                        will
+                        be run in the browser. </p>
+                </div>
+                <!-- <h2>Trump's shutdown proposal would drastically toughen asylum, DACA, TPS rules</h2> -->
+            </div>
+        </div>
+        <div class="barrow"></div>
+    </div>
+</body>
+
+
+</html>

@@ -241,9 +241,10 @@
 /* :not(:required) hides this rule from IE9 and below */
 .wobblebar-loader:not(:required) {
   background: #666666;
-  -moz-border-radius: 10.66667px;
-  -webkit-border-radius: 10.66667px;
-  border-radius: 10.66667px;
+  border: solid 3px #000000;
+  -moz-border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  -webkit-border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border-radius: 50px 255px 50px 225px/225px 50px 255px 50px;
   display: inline-block;
   overflow: hidden;
   text-indent: -9999px;
