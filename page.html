@@ -37,7 +37,7 @@
             /* display: flow-root; */
             /* border: 3px solid #333333; */
             padding: 10vh 0 0 0;
-            -webkit-transition: all 0.25s;
+            /* -webkit-transition: all 0.25s; */
             -webkit-animation: load 1s;
         }
 
@@ -48,7 +48,7 @@
             height: 30vh;
             text-align: center;
             overflow: hidden;
-            -webkit-transition: all 0.3s ease-out;
+            -webkit-transition: height 0.4s ease-out, box-shadow 1s ease-out;
         }
 
         .main h1 {
@@ -70,10 +70,12 @@
 
         .main:hover {
             box-shadow: 0 0 15px 0 rgba(73, 56, 56, 0.5);
+            border-radius: 20px;
             /* border: 3px solid #000; */
             background: #cccccc;
             height: 80vh;
-            -webkit-transition: all 0.25s 0.3s;
+            -webkit-transition: border-radius 0.3s, height 0.3s 0.3s, box-shadow 0.5s 0.4s;
+            /* -webkit-transition: box-shadow 0.2s 0.35s; */
             /* -webkit-animation: main 0.25s; */
             /* -webkit-transform: translate(0, 100px); */
         }
@@ -86,16 +88,70 @@
             text-align: center;
         }
 
-        .other h2 {
+        .other div {
+            /* border: 3px solid #000; */
+            /* display: none; */
             display: inline-block;
+            position: relative;
+            margin: 0 3vw 0 0;
             width: 20vw;
-            position:relative;
+            min-height: 10vh;
+            /* height: 5vh; */
+            vertical-align: center;
+            z-index: 5;
+            -webkit-transition: transform 1s;
+        }
+
+        .other>div p {
+            /* opacity: 0;
+            pointer-events: none; */
+            display: none;
+        }
+
+        .other>div h2 {
+            display: inline-block;
+            /* pointer-events:all; */
+            /* opacity : 1; */
+            width: 20vw;
+            position: relative;
             /* border: 3px solid #000; */
             text-align: center;
             margin: 0 3vw 0 0;
             vertical-align: middle;
             font-family: 'myFirstFont', '??', 'chineseFont', '??';
-            z-index: 1;
+        }
+
+        .other>div:hover {
+            box-shadow: 0 0 15px 0 rgba(73, 56, 56, 0.5);
+            border-radius: 20px;
+            /* border: 3px solid #000; */
+            width: 40vw;
+            /* height: 30vh; */
+            margin: 0 3vw 0 0;
+            z-index: 99;
+            transform: translate(5em, -5em) scale(1.7);
+            background: #cccccc;
+            -webkit-transition: transform 0.7s 1s, border-radius 0.7s, box-shadow 0.7s 1s;
+        }
+
+        .other>div:hover+div {
+            transform: translateY(20em) scale(0);
+            -webkit-transition: transform 2s 1s;
+        }
+
+        /* .other>div:hover~div {
+            transform: translateY(20em) scale(0);
+            -webkit-transition: transform 2s;
+        } */
+
+        .other>div:hover p {
+            display: block;
+            -webkit-transition: all 0.7s 1s;
+        }
+
+        .other>div:hover h2 {
+            display: none;
+            -webkit-transition: all 0.7s 1s;
         }
 
         .other>h2:hover {
@@ -104,20 +160,9 @@
             -webkit-transition: all 0.25s ease-in-out; */
         }
 
-        .other div {
-            /* display: none; */
+        /* .other>h2:hover .p_first {
             display: inline-block;
-            position: absolute;
-            margin: 0 0 auto;
-            width: 20vw;
-            height: 5vh;
-            vertical-align: center;
-            z-index: 5;
-        }
-
-        .other>h2:hover .p_first {
-            display: inline-block;
-        }
+        } */
 
         .menu {
             float: right;
@@ -208,7 +253,9 @@
             /* width: 150px; */
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
             border: 3px solid #000;
+            /* width: 20em; */
             padding-left: 20em;
+            /* transform: translateX(-20em); */
             -webkit-animation: edge 0.6s ease-out;
         }
 
@@ -316,7 +363,7 @@
             -webkit-transition: transform 0.5s, translate 0.5s;
             -webkit-transform: rotate(-45deg);
             /* -webkit-animation: arrow 2s infinite ease-in-out; */
-            -webkit-animation: loadEdgeArrow 2s 2.3s ease-in;
+            -webkit-animation: loadEdgeArrow 1s 2s ease-in;
         }
 
         .barrow {
@@ -336,7 +383,7 @@
             opacity: .8;
             -webkit-transition: transform 0.5s, translate 0.5s;
             -webkit-transform: rotate(45deg);
-            -webkit-animation: loadArrow 2s 1s ease-in;
+            -webkit-animation: loadArrow 1s 1s ease-in-out;
 
         }
 
@@ -414,29 +461,29 @@
 
         @-webkit-keyframes loadArrow {
             0% {
-                -webkit-transform: translate(0px, -200px) rotate(45deg) scale(5);
+                -webkit-transform: translate(0px, -30em) rotate(45deg) scale(5);
             }
 
-            50% {
-                -webkit-transform: translate(0px, -10px) rotate(405deg) scale(0);
+            60% {
+                -webkit-transform: translate(0px, -20em) rotate(405deg) scale(0);
             }
 
             100% {
-                -webkit-transform: translate(0px, 0px) rotate(45deg) scale(1);
+                -webkit-transform: translate(0px, 0em) rotate(45deg) scale(1);
             }
         }
 
         @-webkit-keyframes loadEdgeArrow {
             0% {
-                -webkit-transform: translate(-300px, 0px) rotate(-45deg) scale(5);
+                -webkit-transform: translate(-30em, 0px) rotate(-45deg) scale(5);
             }
 
-            50% {
-                -webkit-transform: translate(-10px, 0px) rotate(-405deg) scale(0);
+            60% {
+                -webkit-transform: translate(-10em, 0px) rotate(-405deg) scale(0);
             }
 
             100% {
-                -webkit-transform: translate(0px, 0px) rotate(-45deg) scale(1);
+                -webkit-transform: translate(0em, 0px) rotate(-45deg) scale(1);
             }
         }
     </style>
@@ -493,9 +540,9 @@
                     demanded at extension install time.</p>
             </div>
             <div class="other">
-                <h2>Arizona nurse accused of raping woman in vegetative state has wife and kids, attends church,
-                    neighbor says</h2>
                 <div class="p_first">
+                    <h2>Arizona nurse accused of raping woman in vegetative state has wife and kids, attends church,
+                        neighbor says</h2>
                     <p> The plans, called Manifest V3, are described in a public document. Google is proposing a number
                         of
                         changes to the way extensions work. The broad intent is to improve extension security, give
@@ -508,8 +555,9 @@
                         will
                         be run in the browser. </p>
                 </div>
-                <h2>White Supremacist Pleads Guilty to Killing Black Man in New York to Start a ‘Race War’</h2>
+
                 <div class="p_second">
+                    <h2>White Supremacist Pleads Guilty to Killing Black Man in New York to Start a ‘Race War’</h2>
                     <p> The plans, called Manifest V3, are described in a public document. Google is proposing a number
                         of
                         changes to the way extensions work. The broad intent is to improve extension security, give
@@ -522,8 +570,9 @@
                         will
                         be run in the browser. </p>
                 </div>
-                <h2>不会中文?</h2>
+
                 <div class="p_third">
+                    <h2>不会中文?White Supremacist Pleads Guilty to Killing</h2>
                     <p> The plans, called Manifest V3, are described in a public document. Google is proposing a number
                         of
                         changes to the way extensions work. The broad intent is to improve extension security, give
